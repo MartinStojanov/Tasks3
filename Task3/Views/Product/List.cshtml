@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Product>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>All products from database</h2>
+       <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th class="text-right">Category name</th>
+                <th class="text-right">UnitPrice</th>
+                <th class="text-right"> UnitInStock</th>
+                <th class="text-right"> UnitsOnOrder</th>
+                <th class="text-right"> SupplierID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+            <tr>
+                <td class="text-center">@product.ProductID</td>
+                <td class="text-left">@product.ProductName</td>
+                <td class="text-right">@product.Category.CategoryName</td>
+                <td class="text-right">@product.UnitPrice</td>
+                <td class="text-right">@product.UnitInStock</td>
+                <td class="text-right">@product.unitsOnOrder</td>
+                <td class="text-right">@product.SupplierID</td>
+            </tr>
+            }
+        </tbody>
+     </table>  
+</body>
+</html>
+
+
